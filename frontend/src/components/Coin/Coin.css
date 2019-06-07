@@ -1,0 +1,19 @@
+.coin-container {
+  transform-style: preserve-3d;
+  transform: rotateX(25deg);
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.face {
+  backface-visibility: hidden;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.back-face {
+  transform: rotateX(180deg);
+}

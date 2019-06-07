@@ -1,6 +1,7 @@
 import React from 'react'
 import { Signer, Contract } from 'ethers'
 import { abi } from './DoubleOrNothing.json'
+import Game from '../Game/Game'
 
 interface IGameProps {
   contractAddress: string
@@ -43,10 +44,6 @@ export class GameContractLoader extends React.PureComponent<
     return <div>Loading...</div>
   }
 
-  renderGame() {
-    return <div>Loaded</div>
-  }
-
   render() {
     const { initialized, contract, error } = this.state
     if (error) {
@@ -54,7 +51,7 @@ export class GameContractLoader extends React.PureComponent<
     } else if (!initialized) {
       return this.renderLoading()
     }
-    return this.renderGame()
+    return <Game contract={contract} />
   }
 }
 

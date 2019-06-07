@@ -17,20 +17,15 @@ export class App extends React.PureComponent<IAppProps, IAppState> {
     let signer: Signer | undefined
     if (web3CapableBrowser) {
       signer = new Web3Provider(window.ethereum).getSigner()
-      window.ethereum
-        .enable()
-        .then(() => {
-          this.setState({ enabled: true })
+      window.ethereum.enable().catch(() =>
+        this.setState({
+          enabled: false
         })
-        .catch(() =>
-          this.setState({
-            enabled: false
-          })
-        )
+      )
     }
     this.state = {
       signer,
-      enabled: false
+      enabled: web3CapableBrowser
     }
   }
 
