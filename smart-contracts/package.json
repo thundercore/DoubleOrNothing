@@ -1,0 +1,6 @@
+{
+  "name": "DoubleOrNothingContract",
+  "version": "1.0.0",
+  "description": "Smart Contract for double or nothing",
+  "license": "MIT"
+}
