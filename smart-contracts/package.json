@@ -2,5 +2,11 @@
   "name": "DoubleOrNothingContract",
   "version": "1.0.0",
   "description": "Smart Contract for double or nothing",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "migrate": "truffle migrate"
+  },
+  "dependencies": {
+    "truffle": "^5.0.21"
+  }
 }
