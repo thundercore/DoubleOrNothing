@@ -6,8 +6,10 @@ export class Coin extends React.PureComponent {
   render() {
     return (
       <div className="coin-container">
-        <TTIcon className="face" />
-        <div className="face back-face" />
+        <div className="disk-body" />
+        <div className="disk face bottom-face" />
+        <div className="face top-face top-face-back disk" />
+        <TTIcon className="face top-face top-face-front disk" />
       </div>
     )
   }

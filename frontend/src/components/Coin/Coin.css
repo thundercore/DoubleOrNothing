@@ -1,19 +1,42 @@
 .coin-container {
   transform-style: preserve-3d;
-  transform: rotateX(25deg);
+  transition: 0.5s all;
   position: relative;
   width: 40px;
   height: 40px;
   border-radius: 50%;
 }
 
-.face {
+.top-face-front {
   backface-visibility: hidden;
+}
+
+.top-face {
+  transform: translateZ(3px);
+}
+
+.top-face-back {
+  background: #444;
+}
+
+.disk-body {
+  width: 40px;
+  height: 6px;
+  position: absolute;
+  background: #444;
+  transform:  translate3d(0,12px,0) rotateX(90deg);
+}
+
+.disk {
+  border-radius: 50%;
   position: absolute;
   height: 100%;
   width: 100%;
+  background: #444;
 }
 
-.back-face {
-  transform: rotateX(180deg);
+.bottom-face {
+  transform: translateZ(-3px) rotateX(180deg);
+  background: #444;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
 }
