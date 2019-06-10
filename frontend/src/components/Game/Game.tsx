@@ -1,32 +1,65 @@
 import React from 'react'
 import './Game.css'
-import { Contract } from 'ethers'
 import Coin from '../Coin/Coin'
+import Display from '../Display/Display'
 
 interface IGameProps {
-  contract: Contract
+  playGame(): any
+  double(): any
+  reset(): any
+  flipping: boolean
+  disabled: boolean
+  win: boolean
+  balance: string
+  betAmount: number
 }
+
 interface IGameState {
-  flip: boolean
+  animating: boolean
 }
 
 export class Game extends React.PureComponent<IGameProps, IGameState> {
-  state = {
-    flip: false
+  static getDerivedStateFromProps(props: IGameProps, state: IGameState) {
+    return props.flipping && !state.animating ? { animating: true } : null
   }
 
-  flip = () => {
-    this.setState({ flip: true })
-    setTimeout(() => this.setState({ flip: false }), 2000)
+  state = {
+    animating: false
   }
 
   render() {
+    const {
+      playGame,
+      disabled,
+      win,
+      double,
+      balance,
+      betAmount,
+      reset
+    } = this.props
+    const { animating } = this.state
     return (
-      <div>
-        <div className={this.state.flip ? 'coin flip' : 'coin'}>
-          <Coin />
+      <div className="game-container">
+        <Display balance={balance} betAmount={betAmount.toString()} />
+        <div
+          className={animating ? 'coin flip' : 'coin'}
+          onAnimationEnd={() => {
+            this.setState({ animating: false })
+          }}
+        >
+          <Coin showFace={!win} />
         </div>
-        <button onClick={this.flip}>Test</button>
+        <div>
+          <button onClick={playGame} disabled={disabled}>
+            Bet
+          </button>
+          <button onClick={reset} disabled={disabled}>
+            Reset
+          </button>
+          <button onClick={double} disabled={disabled || win}>
+            Double or Nothing
+          </button>
+        </div>
       </div>
     )
   }
