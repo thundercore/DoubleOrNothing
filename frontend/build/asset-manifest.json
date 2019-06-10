@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.146d7d5d.chunk.css",
+    "main.js": "/static/js/main.2b3af627.chunk.js",
+    "main.js.map": "/static/js/main.2b3af627.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/js/2.a8423612.chunk.js": "/static/js/2.a8423612.chunk.js",
+    "static/js/2.a8423612.chunk.js.map": "/static/js/2.a8423612.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.7d534edafebf5a7a456b5eef5d87349a.js": "/precache-manifest.7d534edafebf5a7a456b5eef5d87349a.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.146d7d5d.chunk.css.map": "/static/css/main.146d7d5d.chunk.css.map",
+    "static/media/hurt.d74eae6b.svg": "/static/media/hurt.d74eae6b.svg",
+    "static/media/icon_TT.4b021780.svg": "/static/media/icon_TT.4b021780.svg"
+  }
+}
