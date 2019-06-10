@@ -1,8 +1,10 @@
 .flip {
- animation: flip 2s infinite;
+ animation: flip 0.5s linear infinite, move 2s;
 }
 
 .coin {
+  position: relative;
+  padding: 100px;
   transform-style: preserve-3d;
   transform: rotateX(25deg);
 }
@@ -13,5 +15,17 @@
   }
   100% {
     transform: rotateX(385deg);
+  }
+}
+
+@keyframes move {
+  0% {
+    top: 0;
+  }
+  50%{
+    top: -120px;
+  }
+  100% {
+    top: 0;
   }
 }
