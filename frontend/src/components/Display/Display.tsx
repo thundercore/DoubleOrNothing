@@ -1,26 +1,30 @@
 import React from 'react'
-import './Coin.css'
-import { ReactComponent as TTIcon } from '../../assets/icon_TT.svg'
-import { ReactComponent as HurtIcon } from '../../assets/hurt.svg'
+import './Display.css'
+import { formatEther } from 'ethers/utils'
 
-interface ICoinProps {
-  showFace: boolean
+interface IDisplayProps {
+  balance: string
+  betAmount: string
 }
 
-export class Coin extends React.PureComponent<ICoinProps> {
+export class Display extends React.PureComponent<IDisplayProps> {
   render() {
+    const { balance, betAmount } = this.props
     return (
-      <div
-        className={'coin-container ' + (this.props.showFace ? 'flipped' : '')}
-      >
-        <div className="disk-body" />
-        <div className="top-face top-back-face disk" />
-        <div className="disk face bottom-back-face" />
-        <HurtIcon className="disk bottom-front-face" />
-        <TTIcon className="face top-face top-face-front disk" />
+      <div className="display">
+        <div className="content-container">
+          <div className="title">Balance:</div>
+          <div className="value">
+            {parseFloat(formatEther(balance)).toFixed(2)}
+          </div>
+        </div>
+        <div className="content-container">
+          <div className="title">Bet Size:</div>
+          <div className="value">{betAmount} TT</div>
+        </div>
       </div>
     )
   }
 }
 
-export default Coin
+export default Display

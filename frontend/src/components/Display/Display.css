@@ -1,51 +1,17 @@
-.coin-container {
-  transform-style: preserve-3d;
-  transition: 0.5s all;
-  position: relative;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-}
-
-.flipped {
-  transform: rotateX(180deg);
-}
-
-.face {
-  backface-visibility: hidden;
-}
-
-.top-face {
-  transform: translateZ(8px);
-}
-
-.top-back-face {
-  background: #444;
-}
-
-.disk-body {
-  width: 100px;
-  height: 16px;
-  position: absolute;
-  background: #444;
-  transform:  translate3d(0,43px,0) rotateX(90deg);
-}
-
-.disk {
-  overflow: hidden;
-  border-radius: 50%;
-  position: absolute;
-  height: 100%;
+.display {
   width: 100%;
-  background: #444;
 }
 
-.bottom-front-face {
-  transform: translateZ(-8px) rotateX(180deg);
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.45);
+.content-container {
+  margin: 8px;
+  display: flex;
+  flex-direction: row;
 }
 
-.bottom-back-face {
-  transform: translateZ(-8px);
-  background: #444;
+.title {
+
+}
+
+.value {
+  margin-left: 4px;
 }
