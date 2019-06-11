@@ -12,7 +12,8 @@ contract DoubleOrNothing {
   function() external payable {}
 
   function bet() payable external {
-    require(msg.value <= address(this).balance, 'Balance too low!');
+    // msg.value is added to the balance to begin with so you need to double it
+    require(msg.value * 2 <= address(this).balance, 'Balance too low!');
     uint256 winnings = 0;
 
     // DO NOT USE THIS IN PRODUCTION, ITS INSECURE

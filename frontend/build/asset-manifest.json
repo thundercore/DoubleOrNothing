@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/frontend/build/static/css/main.146d7d5d.chunk.css",
-    "main.js": "/frontend/build/static/js/main.65da7e6f.chunk.js",
-    "main.js.map": "/frontend/build/static/js/main.65da7e6f.chunk.js.map",
+    "main.js": "/frontend/build/static/js/main.99c37463.chunk.js",
+    "main.js.map": "/frontend/build/static/js/main.99c37463.chunk.js.map",
     "runtime~main.js": "/frontend/build/static/js/runtime~main.458ddb6e.js",
     "runtime~main.js.map": "/frontend/build/static/js/runtime~main.458ddb6e.js.map",
     "static/js/2.9818a7ee.chunk.js": "/frontend/build/static/js/2.9818a7ee.chunk.js",
     "static/js/2.9818a7ee.chunk.js.map": "/frontend/build/static/js/2.9818a7ee.chunk.js.map",
     "index.html": "/frontend/build/index.html",
-    "precache-manifest.df5435f083ec326ca6d4aa650af242cb.js": "/frontend/build/precache-manifest.df5435f083ec326ca6d4aa650af242cb.js",
+    "precache-manifest.0537928c8d0098e7c245a8ef7956b19d.js": "/frontend/build/precache-manifest.0537928c8d0098e7c245a8ef7956b19d.js",
     "service-worker.js": "/frontend/build/service-worker.js",
     "static/css/main.146d7d5d.chunk.css.map": "/frontend/build/static/css/main.146d7d5d.chunk.css.map",
     "static/media/hurt.d74eae6b.svg": "/frontend/build/static/media/hurt.d74eae6b.svg",
