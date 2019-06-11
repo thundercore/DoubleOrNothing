@@ -2,7 +2,7 @@ import React from 'react'
 import { Signer, Contract } from 'ethers'
 import { abi } from './DoubleOrNothing.json'
 import Game from '../Game/Game'
-import { parseEther } from 'ethers/utils'
+import { bigNumberify, parseEther } from 'ethers/utils'
 import { TransactionReceipt, TransactionResponse } from 'ethers/providers'
 
 interface IGameProps {
@@ -72,7 +72,12 @@ export class GameContractLoader extends React.PureComponent<
   play = (val: number) => {
     this.setState({ disabled: true })
     this.state.contract
-      .bet({ value: parseEther(val.toString()).toHexString() })
+      .bet({
+        value: parseEther(val.toString()).toHexString(),
+        // because there is an if else based on time, the estimate gas will fail and teh transaction will fail
+        // you must set the gas limit
+        gasLimit: bigNumberify('40000').toHexString()
+      })
       .then((trans: TransactionResponse) => {
         this.setState({ flipping: true })
         return trans.wait()
