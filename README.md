@@ -11,14 +11,16 @@ THIS IS NOT PRODUCTION READY AND SHOULD NOT BE USED IN ANY WAY IN PRODUCTION.
  or 
  \
 https `git clone https://github.com/{{Your-github-username}}/{{Your-github-username}}.github.io.git`
-4. `git commit --allow-empty -m "bump"`
-5. `git push`
-6. It will take ~10 mins for Github to create your page. It can be accessed at 
+4. `cd {{Your-github-username}}.git.hub.io.git`
+5. `git commit --allow-empty -m "bump"`
+6. `git push`  
+*Note: If you see the error “push declined due to email privacy restrictions”, you will need to allow command line pushes that expose your email address. This under “Settings”, “Emails”
+7. It will take ~10 mins for Github to create your page. It can be accessed at 
 \
 `https://{{Your-github-username}}.github.io`
-7. While you wait, make sure to have [Metamask](https://metamask.io/) installed
-8. Set it up to a new Custom RPC url: https://mainnet-rpc.thundercore.com
-9. When your page is built, you should be able to play the game
+8. While you wait, make sure to have [Metamask](https://metamask.io/) installed
+9. Set it up to a new Custom RPC url: https://mainnet-rpc.thundercore.com
+10. When your page is built, you should be able to play the game
 
 
 # Understanding the Repo for development
