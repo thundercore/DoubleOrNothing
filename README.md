@@ -38,7 +38,7 @@ In the `/smart-contracts/contracts` folder, you will find `DoubleOrNothing.sol` 
  
 After you make any updates to it, you will have to redeploy the contract.
 
-`yarn migrate --network development/thunder --reset` or `npm run migrate --network development/thunder --reset`
+`yarn migrate --network development/thunder --reset` or `npm run migrate -- --network development/thunder --reset`
 
 ** Development points to localhost:8545 [Ganache](https://www.trufflesuite.com/ganache)
  
