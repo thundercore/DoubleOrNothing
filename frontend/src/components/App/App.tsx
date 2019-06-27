@@ -3,6 +3,8 @@ import './App.css'
 import { Signer } from 'ethers'
 import { Web3Provider } from 'ethers/providers'
 import GameContractLoader from '../GameContractLoader/GameContractLoader'
+import cloudSrc from '../../assets/ig_cloud.png'
+import topBg from '../../assets/ig_bg.jpg'
 
 interface IAppProps {}
 interface IAppState {
@@ -40,17 +42,26 @@ export class App extends React.PureComponent<IAppProps, IAppState> {
   render() {
     const { signer, enabled } = this.state
     return (
-      <div>
-        {!signer ? (
-          this.renderWeb3MissingError()
-        ) : enabled ? (
-          <GameContractLoader
-            contractAddress={process.env.REACT_APP_CONTRACT_ADDRESS}
-            signer={signer}
-          />
-        ) : (
-          this.renderEnableProvider()
-        )}
+      <div className="app">
+        <div className="top">
+          <img src={topBg} alt="" />
+        </div>
+        <div className="flex" />
+        <div className="clouds">
+          <img src={cloudSrc} />
+        </div>
+        <div className="overlay">
+          {!signer ? (
+            this.renderWeb3MissingError()
+          ) : enabled ? (
+            <GameContractLoader
+              contractAddress={process.env.REACT_APP_CONTRACT_ADDRESS}
+              signer={signer}
+            />
+          ) : (
+            this.renderEnableProvider()
+          )}
+        </div>
       </div>
     )
   }

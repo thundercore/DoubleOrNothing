@@ -15,7 +15,7 @@ export class Display extends React.PureComponent<IDisplayProps> {
         <div className="content-container">
           <div className="title">Balance:</div>
           <div className="value">
-            {parseFloat(formatEther(balance)).toFixed(2)}
+            {parseFloat(formatEther(balance)).toFixed(2)} TT
           </div>
         </div>
         <div className="content-container">

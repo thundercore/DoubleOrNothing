@@ -1,17 +1,22 @@
 .display {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
   width: 100%;
 }
 
 .content-container {
+  font-size: 1.25em;
+  color: white;
   margin: 8px;
   display: flex;
   flex-direction: row;
 }
 
 .title {
-
 }
 
 .value {
-  margin-left: 4px;
+  margin-left: 6px;
 }

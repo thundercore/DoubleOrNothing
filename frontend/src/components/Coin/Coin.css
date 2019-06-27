@@ -2,8 +2,8 @@
   transform-style: preserve-3d;
   transition: 0.5s all;
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
 }
 
@@ -31,6 +31,10 @@
   transform:  translate3d(0,43px,0) rotateX(90deg);
 }
 
+.disk-body.back {
+
+}
+
 .disk {
   overflow: hidden;
   border-radius: 50%;
@@ -41,6 +45,8 @@
 }
 
 .bottom-front-face {
+  background-size: contain;
+  background-image: url("../../assets/ig_lose_coin.png");
   transform: translateZ(-8px) rotateX(180deg);
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.45);
 }
@@ -48,4 +54,9 @@
 .bottom-back-face {
   transform: translateZ(-8px);
   background: #444;
+}
+
+.top-face-front {
+  background-size: contain;
+  background-image: url("../../assets/ig_win_coin.png");
 }

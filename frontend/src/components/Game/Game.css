@@ -1,38 +1,83 @@
 .game-container {
-  width: 200px;
+  width: 75%;
+  min-width: 300px;
+  max-width: 400px;
   margin: auto;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-.flip {
-  animation: flip 0.5s linear infinite, move 2s;
+.display-container {
+  margin: 1.5em 0;
+  width: 100%;
 }
 
+.coin-display-container {
+  position: relative;
+  width: 90%;
+}
+
+.coin-display-container img {
+  width: 100%;
+}
+
+.flip {
+  animation: flip 0.5s linear 3;
+}
+
+.container {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%)
+}
 
 .coin {
-  position: relative;
-  margin-top: 150px;
-  margin-bottom: 20px;
   transform-style: preserve-3d;
-  transform: rotateX(25deg);
+  transform: rotateX(10deg);
+  transition: all 0.5s linear;
 }
+
+.button {
+  outline: none;
+  border: none;
+  height: 60px;
+  width: 150px;
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: all 0.25s ease;
+}
+
+.button[disabled] {
+  filter: grayscale(1);
+}
+
+.bet-button {
+  background-image: url("../../assets/ig_bet_btn.png");
+}
+
+
+.reset-button {
+  background-image: url("../../assets/ig_reset_btn.png");
+}
+
+.double-button {
+  background-image: url("../../assets/ig_double_btn.png");
+}
+
 
 @keyframes flip {
   0% {
-    transform: rotateX(25deg);
+    transform: rotateX(10deg);
   }
   100% {
-    transform: rotateX(385deg);
-  }
-}
-
-@keyframes move {
-  0%, 100% {
-    top: 0;
-  }
-  50%{
-    top: -120px;
+    transform: rotateX(370deg);
   }
 }
