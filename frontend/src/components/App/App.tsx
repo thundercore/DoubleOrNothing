@@ -51,16 +51,18 @@ export class App extends React.PureComponent<IAppProps, IAppState> {
           <img src={cloudSrc} />
         </div>
         <div className="overlay">
-          {!signer ? (
-            this.renderWeb3MissingError()
-          ) : enabled ? (
-            <GameContractLoader
-              contractAddress={process.env.REACT_APP_CONTRACT_ADDRESS}
-              signer={signer}
-            />
-          ) : (
-            this.renderEnableProvider()
-          )}
+          <div className="content-container">
+            {!signer ? (
+              this.renderWeb3MissingError()
+            ) : enabled ? (
+              <GameContractLoader
+                contractAddress={process.env.REACT_APP_CONTRACT_ADDRESS}
+                signer={signer}
+              />
+            ) : (
+              this.renderEnableProvider()
+            )}
+          </div>
         </div>
       </div>
     )

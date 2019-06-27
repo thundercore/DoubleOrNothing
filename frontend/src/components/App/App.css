@@ -12,8 +12,22 @@ html, body, .app, #root {
 }
 
 .top {
+  max-width: 1536px;
+  margin: auto;
   overflow: hidden;
   height: 60%;
+}
+
+.content-container {
+  color: white;
+  padding-top: 5vh;
+  width: 75%;
+  min-width: 300px;
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .overlay {

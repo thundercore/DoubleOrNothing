@@ -1,17 +1,19 @@
 {
   "files": {
-    "main.css": "/frontend/build/static/css/main.146d7d5d.chunk.css",
-    "main.js": "/frontend/build/static/js/main.99c37463.chunk.js",
-    "main.js.map": "/frontend/build/static/js/main.99c37463.chunk.js.map",
+    "main.css": "/frontend/build/static/css/main.6a61c545.chunk.css",
+    "main.js": "/frontend/build/static/js/main.e5645fff.chunk.js",
+    "main.js.map": "/frontend/build/static/js/main.e5645fff.chunk.js.map",
     "runtime~main.js": "/frontend/build/static/js/runtime~main.458ddb6e.js",
     "runtime~main.js.map": "/frontend/build/static/js/runtime~main.458ddb6e.js.map",
-    "static/js/2.9818a7ee.chunk.js": "/frontend/build/static/js/2.9818a7ee.chunk.js",
-    "static/js/2.9818a7ee.chunk.js.map": "/frontend/build/static/js/2.9818a7ee.chunk.js.map",
+    "static/js/2.2e79440a.chunk.js": "/frontend/build/static/js/2.2e79440a.chunk.js",
+    "static/js/2.2e79440a.chunk.js.map": "/frontend/build/static/js/2.2e79440a.chunk.js.map",
     "index.html": "/frontend/build/index.html",
-    "precache-manifest.0537928c8d0098e7c245a8ef7956b19d.js": "/frontend/build/precache-manifest.0537928c8d0098e7c245a8ef7956b19d.js",
+    "precache-manifest.36785aee308da72e48f5a46fc50c4318.js": "/frontend/build/precache-manifest.36785aee308da72e48f5a46fc50c4318.js",
     "service-worker.js": "/frontend/build/service-worker.js",
-    "static/css/main.146d7d5d.chunk.css.map": "/frontend/build/static/css/main.146d7d5d.chunk.css.map",
-    "static/media/hurt.d74eae6b.svg": "/frontend/build/static/media/hurt.d74eae6b.svg",
-    "static/media/icon_TT.4b021780.svg": "/frontend/build/static/media/icon_TT.4b021780.svg"
+    "static/css/main.6a61c545.chunk.css.map": "/frontend/build/static/css/main.6a61c545.chunk.css.map",
+    "static/media/ig_bg.jpg": "/frontend/build/static/media/ig_bg.378689a4.jpg",
+    "static/media/ig_cloud.png": "/frontend/build/static/media/ig_cloud.8b23be96.png",
+    "static/media/ig_coin_card.png": "/frontend/build/static/media/ig_coin_card.968dcb99.png",
+    "static/media/Coin.css": "/frontend/build/static/media/ig_win_coin.44207f94.png"
   }
 }
