@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/frontend/build/static/css/main.6a61c545.chunk.css",
+    "main.css": "/frontend/build/static/css/main.d8e2296a.chunk.css",
     "main.js": "/frontend/build/static/js/main.e5645fff.chunk.js",
     "main.js.map": "/frontend/build/static/js/main.e5645fff.chunk.js.map",
     "runtime~main.js": "/frontend/build/static/js/runtime~main.458ddb6e.js",
@@ -8,9 +8,9 @@
     "static/js/2.2e79440a.chunk.js": "/frontend/build/static/js/2.2e79440a.chunk.js",
     "static/js/2.2e79440a.chunk.js.map": "/frontend/build/static/js/2.2e79440a.chunk.js.map",
     "index.html": "/frontend/build/index.html",
-    "precache-manifest.36785aee308da72e48f5a46fc50c4318.js": "/frontend/build/precache-manifest.36785aee308da72e48f5a46fc50c4318.js",
+    "precache-manifest.3697279997b6e613e2867c80cddfdef6.js": "/frontend/build/precache-manifest.3697279997b6e613e2867c80cddfdef6.js",
     "service-worker.js": "/frontend/build/service-worker.js",
-    "static/css/main.6a61c545.chunk.css.map": "/frontend/build/static/css/main.6a61c545.chunk.css.map",
+    "static/css/main.d8e2296a.chunk.css.map": "/frontend/build/static/css/main.d8e2296a.chunk.css.map",
     "static/media/ig_bg.jpg": "/frontend/build/static/media/ig_bg.378689a4.jpg",
     "static/media/ig_cloud.png": "/frontend/build/static/media/ig_cloud.8b23be96.png",
     "static/media/ig_coin_card.png": "/frontend/build/static/media/ig_coin_card.968dcb99.png",
