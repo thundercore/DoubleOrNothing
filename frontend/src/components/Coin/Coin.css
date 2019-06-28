@@ -24,15 +24,17 @@
 }
 
 .disk-body {
-  width: 100px;
+  width: 140px;
   height: 16px;
   position: absolute;
   background: #444;
-  transform:  translate3d(0,43px,0) rotateX(90deg);
+  backface-visibility: hidden;
+  transform:  translate3d(0,63px,0) rotateX(90deg);
 }
 
 .disk-body.back {
-
+  background: #938506;
+  transform:  translate3d(0,63px,0) rotateX(90deg) rotateY(180deg);
 }
 
 .disk {
@@ -54,6 +56,21 @@
 .bottom-back-face {
   transform: translateZ(-8px);
   background: #444;
+}
+
+.half-face-lower {
+  top: 50%;
+  background: #938506;
+}
+
+.half-face-upper {
+  background: #444;
+}
+
+.half-face {
+  position: absolute;
+  height: 50%;
+  width: 100%;
 }
 
 .top-face-front {
