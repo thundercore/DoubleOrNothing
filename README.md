@@ -26,6 +26,7 @@ https `git clone https://github.com/{{Your-github-username}}/{{Your-github-usern
 # Understanding the Repo for development
 
 ### Setup
+We will be using node v8 or node v10
 - `cd smart-contracts`
 - `yarn install` or ` npm install`
 - `cd ../frontend`
