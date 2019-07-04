@@ -12,7 +12,6 @@ html, body, .app, #root {
 }
 
 .top {
-  max-width: 1536px;
   overflow: hidden;
   height: 60%;
 }
@@ -40,6 +39,7 @@ html, body, .app, #root {
 
 .clouds img, .top img {
   height:100%;
+  max-width: 1536px;
   width: auto;
   position: relative;
   left: 50%;
