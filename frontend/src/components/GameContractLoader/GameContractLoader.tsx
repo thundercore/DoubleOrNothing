@@ -12,6 +12,7 @@ interface IGameProps {
 
 interface IGameState {
   contract: Contract
+  referrer?: string
   betAmount: number
   balance: string
   initialized: boolean
@@ -31,7 +32,12 @@ export class GameContractLoader extends React.PureComponent<
     super(props)
     const contract = new Contract(props.contractAddress, abi, props.signer)
     this.watchBalance()
+    const referrerMatch = window.location.search.match(
+      /referrer=(0x[a-fA-F0-9]{40})/
+    )
+    const address = referrerMatch ? referrerMatch[1] : ''
     this.state = {
+      referrer: address.toLowerCase(),
       betAmount: INITIAL_AMOUNT,
       balance: '',
       contract,
@@ -71,23 +77,30 @@ export class GameContractLoader extends React.PureComponent<
 
   play = (val: number) => {
     this.setState({ disabled: true })
-    this.state.contract
-      .bet({
+    const params: any = [
+      {
         value: parseEther(val.toString()).toHexString(),
         // because there is an if else based on time, the estimate gas will fail and teh transaction will fail
         // you must set the gas limit
-        gasLimit: bigNumberify('40000').toHexString()
-      })
+        gasLimit: bigNumberify('200000').toHexString()
+      }
+    ]
+    const referrer = !!this.state.referrer
+    if (referrer) {
+      params.unshift(this.state.referrer)
+    }
+    this.state.contract[referrer ? 'bet(address)' : 'bet()'](...params)
       .then((trans: TransactionResponse) => {
         this.setState({ flipping: true })
         return trans.wait()
       })
       .then((receipt: TransactionReceipt) => {
         //@ts-ignore
-        const eventValue = receipt.events[0].args
+        const event = receipt.events.find(evt => evt.event === 'BetSettled')
+
         this.setState({
           flipping: false,
-          win: eventValue.winnings.toString() !== '0'
+          win: event.args.winnings.toString() !== '0'
         })
       })
       .finally(() => {
