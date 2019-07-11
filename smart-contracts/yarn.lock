@@ -3,9 +3,9 @@
 
 
 "@thundercore/referral-solidity@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@thundercore/referral-solidity/-/referral-solidity-1.0.1.tgz#4406e4cbe1673d303b88f4b48d3730fc773c2e3a"
-  integrity sha512-0LCjjeXiqOyziF8CdWk2ya1iKvvnOlfjrasDv01SPJvbPqgbNTIcNTTSofu5dl3HziERVnrPstyMgQ86UqrT2A==
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@thundercore/referral-solidity/-/referral-solidity-1.0.5.tgz#04272e2b6f2eeca3f023238ebfb27caab302b144"
+  integrity sha512-+AlpBVheSyccKQiI9sKBNt85Q11Dr5cW2bJo6QSlUbOJa9OsQnh3VH3/8LNSa8KvPPXkwBtgOMiVG0yMjpxDcg==
   dependencies:
     openzeppelin-solidity "^2.3.0"
 

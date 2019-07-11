@@ -1377,12 +1377,18 @@
     "108": {
       "events": {},
       "links": {},
-      "address": "0x092FfC819d62431547F3A1dd4A84D5a7C05e5615",
-      "transactionHash": "0x7b5b27debceacc23a592e6ddb97c3a0a77ce8b3fbf8da56071f59413284c8b7e"
+      "address": "0xc8Bb6d6F1DFae1d67664f66D9497B437Cd66E63f",
+      "transactionHash": "0x4b31b045d619c86156db5566b92278c119ed8b4b8d69cfb49c75991f23d6e121"
+    },
+    "1562863318042": {
+      "events": {},
+      "links": {},
+      "address": "0xfcC8Bd74938dC8EE4A0f1ffbd4C234f6335fE30D",
+      "transactionHash": "0xae0f7bd60bc14b91bca1e7df702ba346ac0bb76425a27b240c44b1bc6931cd66"
     }
   },
-  "schemaVersion": "3.0.10",
-  "updatedAt": "2019-07-04T17:49:39.657Z",
+  "schemaVersion": "3.0.11",
+  "updatedAt": "2019-07-11T16:46:11.537Z",
   "devdoc": {
     "methods": {}
   },

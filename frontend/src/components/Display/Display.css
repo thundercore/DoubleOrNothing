@@ -14,9 +14,12 @@
   flex-direction: row;
 }
 
-.title {
-}
-
 .value {
   margin-left: 6px;
+}
+
+@media (max-width: 400px) {
+  .title-container {
+    font-size: 1em;
+  }
 }

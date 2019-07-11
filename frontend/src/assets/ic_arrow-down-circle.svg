@@ -1,0 +1,7 @@
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="ic_arrow-down-circle" transform="translate(1,1)" fill="none" stroke="#FFFFFF" stroke-width="2">
+        <circle id="Oval" cx="10" cy="10" r="10"></circle>
+        <polyline id="Path" points="6 10 10 14 14 10"></polyline>
+        <path d="M10,6 L10,14" id="Path"></path>
+    </g>
+</svg>

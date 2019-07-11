@@ -1,0 +1,119 @@
+.ReferralRule-container {
+  top:55px;
+  bottom:0;
+  width: 100%;
+  overflow: auto;
+  position: absolute;
+  z-index: 200;
+  background: rgba(29,6,34,0.9);
+}
+
+.inner-container {
+  max-width: 420px;
+  margin: auto;
+  color: white;
+  padding: 24px;
+}
+
+.share-container {
+  line-height: 1.5;
+  font-size: 1.15em;
+  text-align: center;
+  border-radius: 5px;
+  background: rgba(72,26,86,0.75);
+  padding: 24px;
+  margin-bottom: 1.5em;
+}
+
+.referral-title {
+  text-align: center;
+  color: rgb(250,245,40);
+  margin-bottom: 1em;
+}
+
+.referral-link-container {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  margin-bottom: 1.5em;
+}
+
+.referral-link {
+  font-size: .85em;
+  font-family: sans-serif;
+  word-break: break-all;
+  padding: 12px;
+  background: rgba(56,34,63, 0.75);
+  border-radius: 5px;
+  flex: 1;
+}
+
+.copy-button {
+  cursor: pointer;
+  margin-bottom: 6px;
+  border: none;
+  outline: none;
+  font-size: 1.5em;
+  font-family: inherit;
+  padding: 20px;
+  margin-left: 8px;
+  border-radius: 5px;
+  color: black;
+  background: rgb(255,197,41);
+  box-shadow: 0 6px 2px rgb(186,117,26);
+  transition: 0.25s all;
+}
+
+.copy-button.clicked {
+  margin-top: 6px;
+  margin-bottom: 0;
+  box-shadow: 0 0 0 rgb(186,117,26);
+}
+
+.referral-stats-container {
+  margin-bottom: 2em;
+}
+
+.referral-stat {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75em;
+  font-size: 0.85em;
+}
+
+.referral-rule-block {
+  margin-bottom: 1em;
+}
+
+.table {
+  display: flex;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 1em;
+}
+
+.table-column {
+  flex: 1;
+}
+
+.table-column.dark {
+  background-color: rgb(70,19,81);
+}
+
+.table-column.light {
+  background-color: rgb(134,52,153);
+}
+
+.table-column.med {
+  background-color: rgb(93,34,107);
+}
+
+.cell {
+  display: flex;
+  padding: 6px;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.05);
+}

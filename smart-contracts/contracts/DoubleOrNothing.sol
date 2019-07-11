@@ -7,18 +7,18 @@ contract DoubleOrNothing is Ownable, Referral {
   event BetSettled(address player, uint256 winnings);
 
   constructor(
-    uint256[] memory _levelRate,
-    uint _referralBonus,
     uint _decimals,
+    uint _referralBonus,
     uint _secondsUntilInactive,
     bool _onlyRewardActiveReferrers,
+    uint256[] memory _levelRate,
     uint256[] memory _refereeBonusRateMap
   ) Referral(
-      _levelRate,
-      _referralBonus,
       _decimals,
+      _referralBonus,
       _secondsUntilInactive,
       _onlyRewardActiveReferrers,
+      _levelRate,
       _refereeBonusRateMap
   ) public {}
 
@@ -36,9 +36,10 @@ contract DoubleOrNothing is Ownable, Referral {
     require(msg.value * 2 <= address(this).balance, 'Balance too low!');
     uint256 winnings = 0;
 
-    // DO NOT USE THIS IN PRODUCTION, ITS INSECURE
+    // DO NOT USE THIS IN PRODUCTION, IT IS INSECURE
     if(uint256(blockhash(block.number -1)) % 2 == 0) {
-      winnings = msg.value * 2;
+      // 3% is deducted to cover the referral bonus
+      winnings = msg.value * 197/100;
       address(msg.sender).transfer(winnings);
     }
     payReferral(msg.value);

@@ -1,37 +1,40 @@
 import React from 'react'
-import { Signer, Contract } from 'ethers'
-import { abi } from './DoubleOrNothing.json'
-import Game from '../Game/Game'
+import { Contract } from 'ethers'
 import { bigNumberify, parseEther } from 'ethers/utils'
 import { TransactionReceipt, TransactionResponse } from 'ethers/providers'
+import Game from '../../components/Game/Game'
+import Header from '../../components/Header/Header'
 
-interface IGameProps {
-  contractAddress: string
-  signer: Signer
+interface IGameContainerProps {
+  contract: Contract
+  address: string
 }
 
-interface IGameState {
-  contract: Contract
+interface IAccountInfo {
+  reward: string
+  referredCount: string
+}
+
+interface IGameContainerState {
   referrer?: string
   betAmount: number
   balance: string
-  initialized: boolean
-  error: boolean
   disabled: boolean
   flipping: boolean
   win: boolean
+  accountInfo: IAccountInfo
 }
 
 const INITIAL_AMOUNT = 0.5
 
-export class GameContractLoader extends React.PureComponent<
-  IGameProps,
-  IGameState
+export class GameContainer extends React.PureComponent<
+  IGameContainerProps,
+  IGameContainerState
 > {
-  constructor(props: IGameProps) {
+  constructor(props: IGameContainerProps) {
     super(props)
-    const contract = new Contract(props.contractAddress, abi, props.signer)
     this.watchBalance()
+    this.watchReferrals()
     const referrerMatch = window.location.search.match(
       /referrer=(0x[a-fA-F0-9]{40})/
     )
@@ -40,39 +43,35 @@ export class GameContractLoader extends React.PureComponent<
       referrer: address.toLowerCase(),
       betAmount: INITIAL_AMOUNT,
       balance: '',
-      contract,
       win: true,
-      initialized: false,
-      error: false,
       disabled: false,
-      flipping: false
+      flipping: false,
+      accountInfo: {
+        reward: '0',
+        referredCount: '0'
+      }
     }
-    contract
-      .deployed()
-      .then(() => {
-        this.setState({ initialized: true })
-      })
-      .catch(() => {
-        this.setState({ error: true })
-      })
   }
 
   watchBalance = () => {
-    this.props.signer.getAddress().then(address =>
-      setInterval(() => {
-        this.props.signer.provider!.getBalance(address).then(bal => {
-          this.setState({ balance: bal.toString() })
+    setInterval(() => {
+      this.props.contract.provider.getBalance(this.props.address).then(bal => {
+        this.setState({ balance: bal.toString() })
+      })
+    }, 500)
+  }
+
+  watchReferrals = () => {
+    setInterval(() => {
+      this.props.contract.accounts(this.props.address).then((info: any) => {
+        this.setState({
+          accountInfo: {
+            reward: info.reward.toString(),
+            referredCount: info.referredCount.toString()
+          }
         })
-      }, 500)
-    )
-  }
-
-  renderError() {
-    return <div>Error loading contract</div>
-  }
-
-  renderLoading() {
-    return <div>Loading...</div>
+      })
+    }, 500)
   }
 
   play = (val: number) => {
@@ -89,7 +88,7 @@ export class GameContractLoader extends React.PureComponent<
     if (referrer) {
       params.unshift(this.state.referrer)
     }
-    this.state.contract[referrer ? 'bet(address)' : 'bet()'](...params)
+    this.props.contract[referrer ? 'bet(address)' : 'bet()'](...params)
       .then((trans: TransactionResponse) => {
         this.setState({ flipping: true })
         return trans.wait()
@@ -124,32 +123,33 @@ export class GameContractLoader extends React.PureComponent<
 
   render() {
     const {
-      initialized,
-      error,
       disabled,
       flipping,
       win,
       balance,
-      betAmount
+      betAmount,
+      accountInfo
     } = this.state
-    if (error) {
-      return this.renderError()
-    } else if (!initialized) {
-      return this.renderLoading()
-    }
     return (
-      <Game
-        double={this.double}
-        playGame={this.playGame}
-        reset={this.reset}
-        betAmount={betAmount}
-        balance={balance}
-        win={win}
-        disabled={disabled}
-        flipping={flipping}
-      />
+      <>
+        <Header
+          address={this.props.address}
+          rewards={accountInfo.reward}
+          refereeCount={accountInfo.referredCount}
+        />
+        <Game
+          double={this.double}
+          playGame={this.playGame}
+          reset={this.reset}
+          betAmount={betAmount}
+          balance={balance}
+          win={win}
+          disabled={disabled}
+          flipping={flipping}
+        />
+      </>
     )
   }
 }
 
-export default GameContractLoader
+export default GameContainer

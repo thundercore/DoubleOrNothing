@@ -1,7 +1,11 @@
 .game-container {
   display: flex;
+  max-width: 450px;
+  width: 95%;
+  margin: auto;
   align-items: center;
   flex-direction: column;
+  margin-top: 1em;
 }
 
 .display-container {

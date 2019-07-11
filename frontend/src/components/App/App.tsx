@@ -1,70 +1,69 @@
 import React from 'react'
 import './App.css'
-import { Signer } from 'ethers'
-import { Web3Provider } from 'ethers/providers'
-import GameContractLoader from '../GameContractLoader/GameContractLoader'
-import cloudSrc from '../../assets/ig_cloud.png'
-import topBg from '../../assets/ig_bg.jpg'
+import { abi } from './DoubleOrNothing.json'
+import Web3Loader from '../Web3Loader/Web3Loader'
+import ContractLoader from '../ContractLoader/ContractLoader'
+import { IWeb3Context } from '../../contexts/Web3Context/Web3Context'
+import { IContractContext } from '../../contexts/ContractContext/ContractContext'
+import GameContainer from '../../containers/GameContainer/GameContainer'
 
 interface IAppProps {}
-interface IAppState {
-  signer?: Signer
-  enabled: boolean
-}
+interface IAppState {}
 
 export class App extends React.PureComponent<IAppProps, IAppState> {
-  constructor(props: IAppProps) {
-    super(props)
-    const web3CapableBrowser = !!window.ethereum
-    let signer: Signer | undefined
-    if (web3CapableBrowser) {
-      signer = new Web3Provider(window.ethereum).getSigner()
-      window.ethereum.enable().catch(() =>
-        this.setState({
-          enabled: false
-        })
-      )
-    }
-    this.state = {
-      signer,
-      enabled: web3CapableBrowser
-    }
+  renderIncapable() {
+    return (
+      <div className="app">
+        <div className="app-message">Please connect a Web3 provider</div>
+      </div>
+    )
   }
 
-  renderWeb3MissingError() {
-    return <div>Please connect a Web3 provider</div>
+  renderPleaseEnable() {
+    return (
+      <div className="app">
+        <div className="app-message">Please enable your Web3 Provider</div>
+      </div>
+    )
   }
 
-  renderEnableProvider() {
-    return <div>Please enable Your Web3 Provider</div>
+  renderEnabled = (params: IWeb3Context) => {
+    return (
+      <div className="app">
+        <ContractLoader
+          renderEnabled={contractParams =>
+            this.renderGame(contractParams, params.address)
+          }
+          renderLoading={this.renderLoading}
+          renderUnavailable={this.renderUnavailable}
+          signer={params.signer!}
+          contractAddress={process.env.REACT_APP_CONTRACT_ADDRESS}
+          abi={abi}
+        />
+      </div>
+    )
+  }
+
+  renderLoading() {
+    return <div className="app-message">Loading...</div>
+  }
+
+  renderUnavailable() {
+    return <div className="app-message">Error loading contract</div>
+  }
+
+  renderGame(params: IContractContext, address: string) {
+    return <GameContainer address={address} contract={params.contract} />
   }
 
   render() {
-    const { signer, enabled } = this.state
     return (
-      <div className="app">
-        <div className="top">
-          <img src={topBg} alt="" />
-        </div>
-        <div className="flex" />
-        <div className="clouds">
-          <img src={cloudSrc} />
-        </div>
-        <div className="overlay">
-          <div className="content-container">
-            {!signer ? (
-              this.renderWeb3MissingError()
-            ) : enabled ? (
-              <GameContractLoader
-                contractAddress={process.env.REACT_APP_CONTRACT_ADDRESS}
-                signer={signer}
-              />
-            ) : (
-              this.renderEnableProvider()
-            )}
-          </div>
-        </div>
-      </div>
+      <Web3Loader
+        renderWeb3Incapable={this.renderIncapable}
+        renderEnabled={this.renderEnabled}
+        renderEnabling={this.renderEnabled}
+        renderUnabled={this.renderPleaseEnable}
+      />
     )
   }
 }

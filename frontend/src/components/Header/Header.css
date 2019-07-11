@@ -1,0 +1,30 @@
+.header {
+  z-index: 2000;
+  padding: 1em 1.5em;
+  background: rgb(72,25,124);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-reward {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reward-container {
+  border-radius: 5px;
+  margin: 0 8px;
+  background: rgb(42,14,74);
+  padding: 2px 8px;
+}
+
+.arrow-circle {
+  transition: 0.25s all;
+}
+
+.arrow-circle.open {
+  transform: rotateX(180deg);
+}

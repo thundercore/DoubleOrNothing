@@ -4,44 +4,15 @@ html, body, .app, #root {
 }
 
 .app {
-  background: #1D0622;
-  flex-direction: column;
-  justify-content: space-between;
-  display: flex;
+  background-image: url("../../assets/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   min-height: 510px;
 }
 
-.top {
-  overflow: hidden;
-  height: 60%;
-}
-
-.content-container {
-  color: white;
+.app-message {
   padding-top: 5vh;
-  width: 95%;
-  min-width: 300px;
-  max-width: 400px;
-  margin: auto;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-}
-.clouds {
-  max-height: 25%;
-  overflow: hidden;
-}
-
-.clouds img, .top img {
-  height:100%;
-  max-width: 1536px;
-  width: auto;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
+  text-align: center;
+  color: white;
 }
