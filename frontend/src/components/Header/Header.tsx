@@ -6,6 +6,7 @@ interface IHeaderProps {
   address: string
   rewards: string
   refereeCount: string
+  activeTimestamp: number
 }
 interface IHeaderState {
   open: boolean
@@ -54,6 +55,7 @@ export class Header extends React.PureComponent<IHeaderProps, IHeaderState> {
             address={this.props.address}
             reward={this.calcualteEther(this.props.rewards)}
             refereeCount={this.props.refereeCount}
+            activeTimestamp={this.props.activeTimestamp}
           />
         )}
       </>

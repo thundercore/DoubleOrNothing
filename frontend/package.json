@@ -5,6 +5,7 @@
   "dependencies": {
     "ethers": "^4.0.29",
     "react": "^16.8.6",
+    "react-countdown-now": "^2.1.1",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {

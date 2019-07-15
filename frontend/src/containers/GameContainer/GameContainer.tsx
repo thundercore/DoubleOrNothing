@@ -13,6 +13,7 @@ interface IGameContainerProps {
 interface IAccountInfo {
   reward: string
   referredCount: string
+  activeTimestamp: number
 }
 
 interface IGameContainerState {
@@ -48,7 +49,8 @@ export class GameContainer extends React.PureComponent<
       flipping: false,
       accountInfo: {
         reward: '0',
-        referredCount: '0'
+        referredCount: '0',
+        activeTimestamp:  Date.now()
       }
     }
   }
@@ -67,7 +69,8 @@ export class GameContainer extends React.PureComponent<
         this.setState({
           accountInfo: {
             reward: info.reward.toString(),
-            referredCount: info.referredCount.toString()
+            referredCount: info.referredCount.toString(),
+            activeTimestamp: info.lastActiveTimestamp.toString() * 1000 + 24 * 60 * 60 * 1000
           }
         })
       })
@@ -136,6 +139,7 @@ export class GameContainer extends React.PureComponent<
           address={this.props.address}
           rewards={accountInfo.reward}
           refereeCount={accountInfo.referredCount}
+          activeTimestamp={accountInfo.activeTimestamp}
         />
         <Game
           double={this.double}
