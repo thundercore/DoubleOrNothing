@@ -20,7 +20,7 @@ export class Header extends React.PureComponent<IHeaderProps, IHeaderState> {
   calcualteEther(wei: string) {
     const amt = wei.padStart(19, '0')
     const decimalIdx = amt.length - 18
-    const precisionIdx = decimalIdx + 2
+    const precisionIdx = decimalIdx + 4
     // round the next precision
     const roundUp = amt.slice(precisionIdx, precisionIdx + 1) >= '5'
     let decimal = roundUp
