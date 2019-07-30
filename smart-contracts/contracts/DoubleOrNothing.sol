@@ -124,10 +124,10 @@ contract DoubleOrNothing is Ownable, Referral, ERC677Receiver {
 
             // This transaction can fail due to not enough gas being sent
             // with the call, so we specify the amount of gas to forward.
-            _token.transfer.gas(50000)(msg.sender, winnings);
+            _token.transfer.gas(50000)(tx.origin, winnings);
         }
 
-        emit BetSettled(msg.sender, winnings);
+        emit BetSettled(tx.origin, winnings);
     }
 
     // With no data sent, the contract token balance is simply updated.
