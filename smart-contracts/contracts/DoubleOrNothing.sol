@@ -3,25 +3,13 @@ pragma solidity 0.5.0;
 import '@thundercore/referral-solidity/contracts/Referral.sol';
 import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 import "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol";
-
-contract ERC677 is ERC20 {
-    event Transfer(address indexed from, address indexed to, uint value, bytes data);
-    function transferAndCall(address, uint, bytes calldata) external returns (bool);
-}
-
-contract IBurnableMintableERC677Token is ERC677 {
-    function mint(address, uint256) public returns (bool);
-    function burn(uint256 _value) public;
-    function claimTokens(address _token, address _to) public;
-}
-
-contract ERC677Receiver {
-    function onTokenTransfer(address _from, uint _value, bytes calldata _data) external returns(bool);
-}
+import "./ERC677Interface.sol";
+import "./ThunderRandomLibraryInterface.sol";
 
 contract DoubleOrNothing is Ownable, Referral, ERC677Receiver {
 
     TokenData[] internal tokens;
+    ThunderRandomLibraryInterface internal RNGLibrary;
     struct TokenData {
         IBurnableMintableERC677Token instance;
         uint256 lastBalance; // Don't trust this; see onTokenTransfer
@@ -36,7 +24,8 @@ contract DoubleOrNothing is Ownable, Referral, ERC677Receiver {
         bool _onlyRewardActiveReferrers,
         uint256[] memory _levelRate,
         uint256[] memory _refereeBonusRateMap,
-        address[] memory _tokenAddresses
+        address[] memory _tokenAddresses,
+        address _randomNumberContractAddress
     ) Referral(
         _decimals,
         _referralBonus,
@@ -48,6 +37,7 @@ contract DoubleOrNothing is Ownable, Referral, ERC677Receiver {
         for (uint i = 0; i < _tokenAddresses.length; i++) {
             tokens.push(generateTokenData(_tokenAddresses[i]));
         }
+        RNGLibrary = ThunderRandomLibraryInterface(_randomNumberContractAddress);
     }
 
     function generateTokenData(address _tokenAddress) internal view returns (TokenData memory) {
@@ -99,8 +89,7 @@ contract DoubleOrNothing is Ownable, Referral, ERC677Receiver {
         require(msg.value * 2 <= address(this).balance, 'Balance too low!');
         uint256 winnings = 0;
 
-        // DO NOT USE THIS IN PRODUCTION, IT IS INSECURE
-        if(uint256(blockhash(block.number -1)) % 2 == 0) {
+        if(RNGLibrary.rand() % 2 == 0) {
             // 3% is deducted to cover the referral bonus
             winnings = msg.value * 197/100;
             address(msg.sender).transfer(winnings);
@@ -118,8 +107,7 @@ contract DoubleOrNothing is Ownable, Referral, ERC677Receiver {
 
         uint256 winnings = 0;
 
-        // DO NOT USE THIS IN PRODUCTION, IT IS INSECURE
-        if(uint256(blockhash(block.number - 1)) % 2 == 0) {
+        if(RNGLibrary.rand()  % 2 == 0) {
             winnings = _amount * 2;
 
             // This transaction can fail due to not enough gas being sent

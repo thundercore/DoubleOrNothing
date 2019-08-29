@@ -1,69 +1,93 @@
 import React from 'react'
 import { Contract, Signer } from 'ethers'
-import { JsonRpcProvider } from 'ethers/providers'
 
 interface IContractContextProps {
+  contracts: IContractData[]
+}
+
+interface IContractData {
   signer: Signer
   checkOnLoad?: boolean
-  contractAddress: string
+  address: string
   abi: any[]
 }
 
-interface IContractContextState {
+interface IContractState {
   contract: Contract
   loading: boolean
   error: boolean
+  load(): void
 }
 
-export interface IContractContext extends IContractContextState {
-  loadContract(): void
+interface IContractContextState {
+  [key: string]: IContractState
 }
 
-const { Consumer, Provider } = React.createContext<IContractContext>({
-  contract: new Contract('', [], new JsonRpcProvider('')),
-  loading: true,
-  error: true,
-  loadContract(): void {}
-})
+export type IContractContext = IContractContextState
+
+const { Consumer, Provider } = React.createContext<IContractContext>({})
 
 export class ContractProvider extends React.PureComponent<
   IContractContextProps,
   IContractContextState
 > {
-  state = {
-    contract: new Contract(
-      this.props.contractAddress,
-      this.props.abi,
-      this.props.signer
-    ),
-    loading: !!this.props.checkOnLoad,
-    error: false
+  constructor(props: IContractContextProps) {
+    super(props)
+    const contractInfo = props.contracts.reduce(
+      (agg, contractData) => {
+        agg[contractData.address] = {
+          contract: new Contract(
+            contractData.address,
+            contractData.abi,
+            contractData.signer
+          ),
+          loading: !!contractData.checkOnLoad,
+          error: false,
+          load: () => {
+            this.loadContract(contractData.address)
+          }
+        }
+        return agg
+      },
+      {} as {
+        [k: string]: IContractState
+      }
+    )
+    this.state = contractInfo
+
+    props.contracts.forEach(contractData => {
+      if (contractData.checkOnLoad) {
+        this.loadContract(contractData.address, true)
+      }
+    })
   }
 
-  componentDidMount(): void {
-    if (this.props.checkOnLoad) {
-      this.loadContract()
+  private loadContract = (address: string, initializing?: boolean) => {
+    const contractData = this.state[address]
+    if (!contractData) {
+      return
     }
-  }
-
-  loadContract = () => {
-    this.setState({ loading: true })
-    this.state.contract
+    if (!initializing) {
+      this.setState({
+        [address]: { ...contractData, loading: true, error: false }
+      })
+    }
+    contractData.contract
       .deployed()
       .then(() => {
-        this.setState({ loading: false })
+        this.setState({
+          [address]: { ...contractData, loading: false }
+        })
       })
       .catch(() => {
-        this.setState({ loading: false, error: true })
+        this.setState({
+          [address]: { ...contractData, loading: false, error: true }
+        })
       })
   }
 
   render() {
-    return (
-      <Provider value={{ ...this.state, loadContract: this.loadContract }}>
-        {this.props.children}
-      </Provider>
-    )
+    return <Provider value={this.state}>{this.props.children}</Provider>
   }
 }
 

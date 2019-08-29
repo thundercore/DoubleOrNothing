@@ -1,6 +1,6 @@
 .game-container {
   display: flex;
-  max-width: 450px;
+  max-width: 420px;
   width: 95%;
   margin: auto;
   align-items: center;

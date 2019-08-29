@@ -6,34 +6,53 @@ import ContractProvider, {
 } from '../../contexts/ContractContext/ContractContext'
 import { Signer } from 'ethers'
 
-interface IContractLoaderProps {
-  signer: Signer
+interface IContractData {
   abi: any[]
-  contractAddress: string
+  address: string
+  signer: Signer
+}
+
+interface IContractLoaderProps {
+  contractData: IContractData[]
   renderLoading(params: IContractContext): React.ReactNode
   renderEnabled(params: IContractContext): React.ReactNode
   renderUnavailable(params: IContractContext): React.ReactNode
 }
 
-export class ContractLoader extends React.PureComponent<IContractLoaderProps> {
+interface IContractLoaderState {
+  contracts: IContractData[]
+}
+
+export class ContractLoader extends React.PureComponent<
+  IContractLoaderProps,
+  IContractLoaderState
+> {
+  static getDerivedStateFromProps(props: IContractLoaderProps) {
+    return {
+      contracts: props.contractData.map(data => ({
+        ...data,
+        checkOnLoad: true
+      }))
+    }
+  }
+  state: IContractLoaderState = {
+    contracts: []
+  }
+
   renderContractState = (params: IContractContext) => {
-    if (params.loading) {
+    // @ts-ignore
+    if (Object.keys(params).find(key => params[key].loading)) {
       return this.props.renderLoading(params)
-    } else if (params.error) {
+      // @ts-ignore
+    } else if (Object.keys(params).find(key => params[key].error)) {
       return this.props.renderUnavailable(params)
     }
     return this.props.renderEnabled(params)
   }
 
   render() {
-    const { signer, contractAddress, abi } = this.props
     return (
-      <ContractProvider
-        checkOnLoad={true}
-        abi={abi}
-        contractAddress={contractAddress}
-        signer={signer}
-      >
+      <ContractProvider contracts={this.state.contracts}>
         <ContractConsumer>{this.renderContractState}</ContractConsumer>
       </ContractProvider>
     )
