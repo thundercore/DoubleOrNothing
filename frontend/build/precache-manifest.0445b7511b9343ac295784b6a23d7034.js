@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b9f1e00e74fd3ae96ad4fbed04bcc902",
+    "revision": "324bbb060782f532670cecad21224a59",
     "url": "/frontend/build/index.html"
   },
   {
-    "revision": "1f8a60bc1037a8f4a22b",
-    "url": "/frontend/build/static/css/main.6d66d2d5.chunk.css"
+    "revision": "55825335e20f05b3c149",
+    "url": "/frontend/build/static/css/main.05360ce9.chunk.css"
   },
   {
-    "revision": "4305bea7608c4498e0e2",
-    "url": "/frontend/build/static/js/2.3fd1c87a.chunk.js"
+    "revision": "3622714b1e1823ab47e3",
+    "url": "/frontend/build/static/js/2.212fb3e9.chunk.js"
   },
   {
-    "revision": "1f8a60bc1037a8f4a22b",
-    "url": "/frontend/build/static/js/main.1c4d5dbf.chunk.js"
+    "revision": "55825335e20f05b3c149",
+    "url": "/frontend/build/static/js/main.01c57206.chunk.js"
   },
   {
     "revision": "d5abe35a86fada3a8db8",
@@ -38,5 +38,13 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "44207f94d90658bedf76545bed55f30d",
     "url": "/frontend/build/static/media/ig_win_coin.44207f94.png"
+  },
+  {
+    "revision": "03a05cbd447b847c2293667548df2788",
+    "url": "/frontend/build/static/media/tt-dai.03a05cbd.png"
+  },
+  {
+    "revision": "6ef855666d8f483e3f6fa8cdffb27051",
+    "url": "/frontend/build/static/media/tt-usdt.6ef85566.png"
   }
 ]);
