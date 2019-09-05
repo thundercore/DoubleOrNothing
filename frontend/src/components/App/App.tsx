@@ -6,6 +6,9 @@ import ContractLoader from '../ContractLoader/ContractLoader'
 import { IWeb3Context } from '../../contexts/Web3Context/Web3Context'
 import { IContractContext } from '../../contexts/ContractContext/ContractContext'
 import GameContainer from '../../containers/GameContainer/GameContainer'
+import config from '../../config'
+import { abi as Erc677Abi } from './ERC677.json'
+import { ContractEnum } from '../../ContractEnum'
 
 interface IAppProps {}
 interface IAppState {}
@@ -31,14 +34,28 @@ export class App extends React.PureComponent<IAppProps, IAppState> {
     return (
       <div className="app">
         <ContractLoader
+          contractData={[
+            {
+              address: config[ContractEnum.DoubleOrNothing],
+              signer: params.signer!,
+              abi
+            },
+            {
+              address: config[ContractEnum.TTDai],
+              signer: params.signer!,
+              abi: Erc677Abi
+            },
+            {
+              address: config[ContractEnum.TTUsdt],
+              signer: params.signer!,
+              abi: Erc677Abi
+            }
+          ]}
           renderEnabled={contractParams =>
             this.renderGame(contractParams, params.address)
           }
           renderLoading={this.renderLoading}
           renderUnavailable={this.renderUnavailable}
-          signer={params.signer!}
-          contractAddress={process.env.REACT_APP_CONTRACT_ADDRESS}
-          abi={abi}
         />
       </div>
     )
@@ -53,7 +70,17 @@ export class App extends React.PureComponent<IAppProps, IAppState> {
   }
 
   renderGame(params: IContractContext, address: string) {
-    return <GameContainer address={address} contract={params.contract} />
+    return (
+      <GameContainer
+        address={address}
+        contracts={{
+          [ContractEnum.DoubleOrNothing]:
+            params[config[ContractEnum.DoubleOrNothing]].contract,
+          [ContractEnum.TTUsdt]: params[config[ContractEnum.TTUsdt]].contract,
+          [ContractEnum.TTDai]: params[config[ContractEnum.TTDai]].contract
+        }}
+      />
+    )
   }
 
   render() {

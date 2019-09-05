@@ -1,5 +1,5 @@
 import React from 'react'
-import Countdown, {CountdownRenderProps} from 'react-countdown-now';
+import Countdown, { CountdownRenderProps } from 'react-countdown-now'
 
 import './ReferralRules.css'
 
@@ -54,14 +54,23 @@ export class ReferralRules extends React.PureComponent<
     )
   }
 
-  renderCountdown({ hours, minutes, seconds, completed }: CountdownRenderProps) {
+  renderCountdown({
+    hours,
+    minutes,
+    seconds,
+    completed
+  }: CountdownRenderProps) {
     function paddingTime(val: number) {
-      return ('00' + val).slice(-2);
+      return ('00' + val).slice(-2)
     }
-    
-    return completed 
-      ? <span>00:00:00</span>
-      : <span>{paddingTime(hours)}:{paddingTime(minutes)}:{paddingTime(seconds)}</span>
+
+    return completed ? (
+      <span>00:00:00</span>
+    ) : (
+      <span>
+        {paddingTime(hours)}:{paddingTime(minutes)}:{paddingTime(seconds)}
+      </span>
+    )
   }
 
   render() {
@@ -82,11 +91,17 @@ export class ReferralRules extends React.PureComponent<
             >
               copy
             </button>
-          </div> 
+          </div>
           <div className="referral-stats-container">
             {this.renderStat('Total Referral Reward', reward)}
             {this.renderStat('Number of Referees', refereeCount)}
-            {this.renderStat('Your referral active time', <Countdown date={activeTimestamp} renderer={this.renderCountdown} />)}
+            {this.renderStat(
+              'Your referral active time',
+              <Countdown
+                date={activeTimestamp}
+                renderer={this.renderCountdown}
+              />
+            )}
           </div>
           <div className="referral-rules-container">
             <div className="referral-title">Referral Rule</div>
