@@ -1,19 +1,21 @@
 {
   "files": {
-    "main.css": "/frontend/build/static/css/main.6d66d2d5.chunk.css",
-    "main.js": "/frontend/build/static/js/main.1c4d5dbf.chunk.js",
-    "main.js.map": "/frontend/build/static/js/main.1c4d5dbf.chunk.js.map",
-    "runtime~main.js": "/frontend/build/static/js/runtime~main.458ddb6e.js",
-    "runtime~main.js.map": "/frontend/build/static/js/runtime~main.458ddb6e.js.map",
-    "static/js/2.3fd1c87a.chunk.js": "/frontend/build/static/js/2.3fd1c87a.chunk.js",
-    "static/js/2.3fd1c87a.chunk.js.map": "/frontend/build/static/js/2.3fd1c87a.chunk.js.map",
-    "index.html": "/frontend/build/index.html",
-    "precache-manifest.e4d83b94099df06c18c6b943d7e4d9a3.js": "/frontend/build/precache-manifest.e4d83b94099df06c18c6b943d7e4d9a3.js",
-    "service-worker.js": "/frontend/build/service-worker.js",
-    "static/css/main.6d66d2d5.chunk.css.map": "/frontend/build/static/css/main.6d66d2d5.chunk.css.map",
-    "static/media/App.css": "/frontend/build/static/media/bg.03b4fd11.jpg",
-    "static/media/ic_arrow-down-circle.3d1db861.svg": "/frontend/build/static/media/ic_arrow-down-circle.3d1db861.svg",
-    "static/media/ig_coin_card.png": "/frontend/build/static/media/ig_coin_card.968dcb99.png",
-    "static/media/Coin.css": "/frontend/build/static/media/ig_win_coin.44207f94.png"
+    "main.css": "/DoubleOrNothing/frontend/build/static/css/main.ca3f1b3f.chunk.css",
+    "main.js": "/DoubleOrNothing/frontend/build/static/js/main.7639a31c.chunk.js",
+    "main.js.map": "/DoubleOrNothing/frontend/build/static/js/main.7639a31c.chunk.js.map",
+    "runtime~main.js": "/DoubleOrNothing/frontend/build/static/js/runtime~main.2a8c9ac0.js",
+    "runtime~main.js.map": "/DoubleOrNothing/frontend/build/static/js/runtime~main.2a8c9ac0.js.map",
+    "static/js/2.212fb3e9.chunk.js": "/DoubleOrNothing/frontend/build/static/js/2.212fb3e9.chunk.js",
+    "static/js/2.212fb3e9.chunk.js.map": "/DoubleOrNothing/frontend/build/static/js/2.212fb3e9.chunk.js.map",
+    "index.html": "/DoubleOrNothing/frontend/build/index.html",
+    "precache-manifest.cff9c3f78448118f529612dc532e4848.js": "/DoubleOrNothing/frontend/build/precache-manifest.cff9c3f78448118f529612dc532e4848.js",
+    "service-worker.js": "/DoubleOrNothing/frontend/build/service-worker.js",
+    "static/css/main.ca3f1b3f.chunk.css.map": "/DoubleOrNothing/frontend/build/static/css/main.ca3f1b3f.chunk.css.map",
+    "static/media/App.css": "/DoubleOrNothing/frontend/build/static/media/bg.03b4fd11.jpg",
+    "static/media/ic_arrow-down-circle.3d1db861.svg": "/DoubleOrNothing/frontend/build/static/media/ic_arrow-down-circle.3d1db861.svg",
+    "static/media/ig_coin_card.png": "/DoubleOrNothing/frontend/build/static/media/ig_coin_card.968dcb99.png",
+    "static/media/Coin.css": "/DoubleOrNothing/frontend/build/static/media/ig_win_coin.44207f94.png",
+    "static/media/tt-dai.png": "/DoubleOrNothing/frontend/build/static/media/tt-dai.03a05cbd.png",
+    "static/media/tt-usdt.png": "/DoubleOrNothing/frontend/build/static/media/tt-usdt.6ef85566.png"
   }
 }
