@@ -5,6 +5,7 @@ import Display from '../Display/Display'
 import cardSrc from '../../assets/ig_coin_card.png'
 import CoinPicker from '../CoinPicker/CoinPicker'
 import { ContractEnum } from '../../ContractEnum'
+import { formatUnits }  from 'ethers/utils'
 
 interface IGameProps {
   active: ContractEnum
@@ -17,6 +18,8 @@ interface IGameProps {
   win: boolean
   balance: string
   betAmount: number
+  decimals: number
+  symbol: string
 }
 
 interface IGameState {
@@ -42,14 +45,17 @@ export class Game extends React.PureComponent<IGameProps, IGameState> {
       betAmount,
       reset,
       active,
-      changeContract
+      changeContract,
+      decimals,
+      symbol,
     } = this.props
     const { animating } = this.state
+    let b = balance.length === 0 ? '0' : balance
     return (
       <div className="game-container">
         <CoinPicker active={active} changeContract={changeContract} />
         <div className="display-container">
-          <Display balance={balance} betAmount={betAmount.toString()} />
+          <Display balance={formatUnits(b, decimals).toString()} betAmount={betAmount.toString()} symbol={symbol} />
         </div>
         <div className="coin-display-container container">
           <img src={cardSrc} alt="" />

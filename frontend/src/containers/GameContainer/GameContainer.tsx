@@ -8,7 +8,6 @@ interface IGameContainerProps {
   contracts: {
     [ContractEnum.DoubleOrNothing]: Contract
     [ContractEnum.TTUsdt]: Contract
-    [ContractEnum.TTDai]: Contract
   }
   address: string
 }
@@ -22,7 +21,7 @@ export class GameContainer extends React.PureComponent<
   IGameContainerState
 > {
   state = {
-    currentContract: ContractEnum.DoubleOrNothing
+    currentContract: ContractEnum.DoubleOrNothing,
   }
 
   changeContract = (contract: ContractEnum) => {
@@ -40,16 +39,6 @@ export class GameContainer extends React.PureComponent<
           changeContract={this.changeContract}
         />
       )
-    } else if (currentContract === ContractEnum.TTDai) {
-      return (
-        <Erc677GameContainer
-          gameAddress={contracts[ContractEnum.DoubleOrNothing].address}
-          contractName={ContractEnum.TTDai}
-          contract={contracts[ContractEnum.TTDai]}
-          address={address}
-          changeContract={this.changeContract}
-        />
-      )
     } else {
       return (
         <Erc677GameContainer
@@ -60,6 +49,7 @@ export class GameContainer extends React.PureComponent<
           changeContract={this.changeContract}
         />
       )
+
     }
   }
 }

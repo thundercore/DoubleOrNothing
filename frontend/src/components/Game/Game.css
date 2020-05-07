@@ -81,3 +81,9 @@
     transform: rotateX(370deg);
   }
 }
+
+#debug-messages {
+  background-image: none;
+  background-color: white;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}

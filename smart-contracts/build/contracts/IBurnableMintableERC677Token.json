@@ -336,13 +336,19 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "import \"openzeppelin-solidity/contracts/token/ERC20/ERC20.sol\";\n\ncontract ERC677 is ERC20 {\n    event Transfer(address indexed from, address indexed to, uint value, bytes data);\n    function transferAndCall(address, uint, bytes calldata) external returns (bool);\n}\n\ncontract IBurnableMintableERC677Token is ERC677 {\n    function mint(address, uint256) public returns (bool);\n    function burn(uint256 _value) public;\n    function claimTokens(address _token, address _to) public;\n}\n\ncontract ERC677Receiver {\n    function onTokenTransfer(address _from, uint _value, bytes calldata _data) external returns(bool);\n}\n",
-  "sourcePath": "/Users/yjiang/git/test/DoubleOrNothing/smart-contracts/contracts/ERC677Interface.sol",
+  "sourcePath": "/home/scottt/git/tt/DoubleOrNothing/smart-contracts/contracts/ERC677Interface.sol",
   "ast": {
-    "absolutePath": "/Users/yjiang/git/test/DoubleOrNothing/smart-contracts/contracts/ERC677Interface.sol",
+    "absolutePath": "/home/scottt/git/tt/DoubleOrNothing/smart-contracts/contracts/ERC677Interface.sol",
     "exportedSymbols": {
-      "ERC677": [566],
-      "ERC677Receiver": [602],
-      "IBurnableMintableERC677Token": [590]
+      "ERC677": [
+        566
+      ],
+      "ERC677Receiver": [
+        602
+      ],
+      "IBurnableMintableERC677Token": [
+        590
+      ]
     },
     "id": 603,
     "nodeType": "SourceUnit",
@@ -379,12 +385,19 @@
             "src": "84:5:1"
           }
         ],
-        "contractDependencies": [1980, 2049],
+        "contractDependencies": [
+          1980,
+          2049
+        ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
         "id": 566,
-        "linearizedBaseContracts": [566, 1980, 2049],
+        "linearizedBaseContracts": [
+          566,
+          1980,
+          2049
+        ],
         "name": "ERC677",
         "nodeType": "ContractDefinition",
         "nodes": [
@@ -672,12 +685,21 @@
             "src": "307:6:1"
           }
         ],
-        "contractDependencies": [566, 1980, 2049],
+        "contractDependencies": [
+          566,
+          1980,
+          2049
+        ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
         "id": 590,
-        "linearizedBaseContracts": [590, 566, 1980, 2049],
+        "linearizedBaseContracts": [
+          590,
+          566,
+          1980,
+          2049
+        ],
         "name": "IBurnableMintableERC677Token",
         "nodeType": "ContractDefinition",
         "nodes": [
@@ -936,7 +958,9 @@
         "documentation": null,
         "fullyImplemented": false,
         "id": 602,
-        "linearizedBaseContracts": [602],
+        "linearizedBaseContracts": [
+          602
+        ],
         "name": "ERC677Receiver",
         "nodeType": "ContractDefinition",
         "nodes": [
@@ -1082,11 +1106,17 @@
     "src": "0:613:1"
   },
   "legacyAST": {
-    "absolutePath": "/Users/yjiang/git/test/DoubleOrNothing/smart-contracts/contracts/ERC677Interface.sol",
+    "absolutePath": "/home/scottt/git/tt/DoubleOrNothing/smart-contracts/contracts/ERC677Interface.sol",
     "exportedSymbols": {
-      "ERC677": [566],
-      "ERC677Receiver": [602],
-      "IBurnableMintableERC677Token": [590]
+      "ERC677": [
+        566
+      ],
+      "ERC677Receiver": [
+        602
+      ],
+      "IBurnableMintableERC677Token": [
+        590
+      ]
     },
     "id": 603,
     "nodeType": "SourceUnit",
@@ -1123,12 +1153,19 @@
             "src": "84:5:1"
           }
         ],
-        "contractDependencies": [1980, 2049],
+        "contractDependencies": [
+          1980,
+          2049
+        ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
         "id": 566,
-        "linearizedBaseContracts": [566, 1980, 2049],
+        "linearizedBaseContracts": [
+          566,
+          1980,
+          2049
+        ],
         "name": "ERC677",
         "nodeType": "ContractDefinition",
         "nodes": [
@@ -1416,12 +1453,21 @@
             "src": "307:6:1"
           }
         ],
-        "contractDependencies": [566, 1980, 2049],
+        "contractDependencies": [
+          566,
+          1980,
+          2049
+        ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
         "id": 590,
-        "linearizedBaseContracts": [590, 566, 1980, 2049],
+        "linearizedBaseContracts": [
+          590,
+          566,
+          1980,
+          2049
+        ],
         "name": "IBurnableMintableERC677Token",
         "nodeType": "ContractDefinition",
         "nodes": [
@@ -1680,7 +1726,9 @@
         "documentation": null,
         "fullyImplemented": false,
         "id": 602,
-        "linearizedBaseContracts": [602],
+        "linearizedBaseContracts": [
+          602
+        ],
         "name": "ERC677Receiver",
         "nodeType": "ContractDefinition",
         "nodes": [
@@ -1830,8 +1878,8 @@
     "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.0.11",
-  "updatedAt": "2019-08-29T08:01:38.973Z",
+  "schemaVersion": "3.1.0",
+  "updatedAt": "2020-05-06T12:23:04.660Z",
   "devdoc": {
     "methods": {
       "allowance(address,address)": {

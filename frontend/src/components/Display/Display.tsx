@@ -1,26 +1,26 @@
 import React from 'react'
 import './Display.css'
-import { formatEther } from 'ethers/utils'
 
 interface IDisplayProps {
   balance: string
   betAmount: string
+  symbol: string
 }
 
 export class Display extends React.PureComponent<IDisplayProps> {
   render() {
-    const { balance, betAmount } = this.props
+    const { balance, betAmount, symbol } = this.props
     return (
       <div className="display">
         <div className="title-container">
           <div className="title">Balance:</div>
           <div className="value">
-            {parseFloat(formatEther(balance)).toFixed(2)} TT
+            {parseFloat(balance).toFixed(2)} {symbol}
           </div>
         </div>
         <div className="title-container">
           <div className="title">Bet Size:</div>
-          <div className="value">{betAmount} TT</div>
+          <div className="value">{betAmount} {symbol}</div>
         </div>
       </div>
     )

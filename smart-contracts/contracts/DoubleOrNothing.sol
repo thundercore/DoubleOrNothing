@@ -87,6 +87,11 @@ contract DoubleOrNothing is Ownable, Referral, ERC677Receiver {
     function bet() payable public {
         // msg.value is added to the balance to begin with so you need to double it
         require(msg.value * 2 <= address(this).balance, 'Balance too low!');
+
+        // prevent "revert txn unless I won" attacks, see
+        // https://developers.thundercore.com/docs/random-number-generator/
+        require(msg.sender == tx.origin);
+
         uint256 winnings = 0;
 
         if(RNGLibrary.rand() % 2 == 0) {

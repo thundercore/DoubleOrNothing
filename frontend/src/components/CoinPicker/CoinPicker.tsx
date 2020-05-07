@@ -1,6 +1,5 @@
 import React from 'react'
 import './CoinPicker.css'
-import TTDaiImg from '../../assets/tt-dai.png'
 import TTUsdtImg from '../../assets/tt-usdt.png'
 import TTImg from '../../assets/icon_TT.png'
 import { ContractEnum } from '../../ContractEnum'
@@ -21,11 +20,6 @@ const buttons = [
     img: TTUsdtImg,
     text: 'TT USDT'
   },
-  {
-    name: ContractEnum.TTDai,
-    img: TTDaiImg,
-    text: 'TT DAI'
-  }
 ]
 
 export class CoinPicker extends React.PureComponent<ICoinPickerProps> {

@@ -22,11 +22,13 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "contract ThunderRandomLibraryInterface {\n    function rand() public returns (uint256);\n}\n",
-  "sourcePath": "/Users/yjiang/git/test/DoubleOrNothing/smart-contracts/contracts/ThunderRandomLibraryInterface.sol",
+  "sourcePath": "/home/scottt/git/tt/DoubleOrNothing/smart-contracts/contracts/ThunderRandomLibraryInterface.sol",
   "ast": {
-    "absolutePath": "/Users/yjiang/git/test/DoubleOrNothing/smart-contracts/contracts/ThunderRandomLibraryInterface.sol",
+    "absolutePath": "/home/scottt/git/tt/DoubleOrNothing/smart-contracts/contracts/ThunderRandomLibraryInterface.sol",
     "exportedSymbols": {
-      "ThunderRandomLibraryInterface": [666]
+      "ThunderRandomLibraryInterface": [
+        666
+      ]
     },
     "id": 667,
     "nodeType": "SourceUnit",
@@ -38,7 +40,9 @@
         "documentation": null,
         "fullyImplemented": false,
         "id": 666,
-        "linearizedBaseContracts": [666],
+        "linearizedBaseContracts": [
+          666
+        ],
         "name": "ThunderRandomLibraryInterface",
         "nodeType": "ContractDefinition",
         "nodes": [
@@ -104,9 +108,11 @@
     "src": "0:89:3"
   },
   "legacyAST": {
-    "absolutePath": "/Users/yjiang/git/test/DoubleOrNothing/smart-contracts/contracts/ThunderRandomLibraryInterface.sol",
+    "absolutePath": "/home/scottt/git/tt/DoubleOrNothing/smart-contracts/contracts/ThunderRandomLibraryInterface.sol",
     "exportedSymbols": {
-      "ThunderRandomLibraryInterface": [666]
+      "ThunderRandomLibraryInterface": [
+        666
+      ]
     },
     "id": 667,
     "nodeType": "SourceUnit",
@@ -118,7 +124,9 @@
         "documentation": null,
         "fullyImplemented": false,
         "id": 666,
-        "linearizedBaseContracts": [666],
+        "linearizedBaseContracts": [
+          666
+        ],
         "name": "ThunderRandomLibraryInterface",
         "nodeType": "ContractDefinition",
         "nodes": [
@@ -188,8 +196,8 @@
     "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.0.11",
-  "updatedAt": "2019-08-29T08:01:38.974Z",
+  "schemaVersion": "3.1.0",
+  "updatedAt": "2020-05-06T12:23:04.663Z",
   "devdoc": {
     "methods": {}
   },

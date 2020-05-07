@@ -1,6 +1,6 @@
 import React from 'react'
 import { Contract } from 'ethers'
-import { BigNumber, bigNumberify, parseEther } from 'ethers/utils'
+import { BigNumber, bigNumberify, parseUnits } from 'ethers/utils'
 import Game from '../../components/Game/Game'
 import Header from '../../components/Header/Header'
 import { ContractEnum } from '../../ContractEnum'
@@ -27,6 +27,7 @@ interface IErc677GameContainerState {
   flipping: boolean
   win: boolean
   accountInfo: IAccountInfo
+  decimals: number
 }
 
 const INITIAL_AMOUNT = 0.5
@@ -39,7 +40,6 @@ export class Erc677GameContainer extends React.PureComponent<
 
   constructor(props: IErc677GameContainerProps) {
     super(props)
-    this.watchBalance()
     this.state = {
       betAmount: INITIAL_AMOUNT,
       balance: '',
@@ -50,8 +50,10 @@ export class Erc677GameContainer extends React.PureComponent<
         reward: '0',
         referredCount: '0',
         activeTimestamp: Date.now()
-      }
+      },
+      decimals: 6
     }
+    this.watchBalance()
   }
 
   componentWillUnmount(): void {
@@ -64,20 +66,28 @@ export class Erc677GameContainer extends React.PureComponent<
     this.interval = setInterval(() => {
       this.props.contract
         .balanceOf(this.props.address)
-        .then((bal: BigNumber) => {
-          this.setState({ balance: bal.toString() })
-        })
+        .then((bal: BigNumber) => this.props.contract.decimals()
+        .then((d: number) => {
+          this.setState({ balance: bal.toString(), decimals: d })
+        }
+        ))
     }, 500)
   }
 
   play = (val: number) => {
     this.setState({ disabled: true })
+
+    this.props.contract.decimals().then((d:number) => {
+    console.log(d)
     this.props.contract
       .transferAndCall(
         this.props.gameAddress,
-        parseEther(val.toString()),
+        parseUnits(val.toString(), d),
         '0xfae',
-        { gasLimit: bigNumberify('100000').toHexString() }
+        {
+          gasPrice: bigNumberify('1000000000').toHexString(),
+          gasLimit: bigNumberify('100000').toHexString()
+        }
       )
       .then((trans: TransactionResponse) => {
         this.setState({ flipping: true })
@@ -100,6 +110,7 @@ export class Erc677GameContainer extends React.PureComponent<
       .finally(() => {
         this.setState({ disabled: false, flipping: false })
       })
+    })
   }
 
   playGame = () => {
@@ -123,7 +134,8 @@ export class Erc677GameContainer extends React.PureComponent<
       win,
       balance,
       betAmount,
-      accountInfo
+      accountInfo,
+      decimals
     } = this.state
     return (
       <>
@@ -144,6 +156,8 @@ export class Erc677GameContainer extends React.PureComponent<
           win={win}
           disabled={disabled}
           flipping={flipping}
+          decimals={decimals}
+          symbol={'USDT'}
         />
       </>
     )

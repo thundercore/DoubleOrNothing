@@ -1,0 +1,6 @@
+name: double-or-nothing
+channels:
+  - conda-forge
+dependencies:
+  - nodejs=10.16.3  # hub-analytics-frontend
+  - yarn=1.22.0

@@ -31,7 +31,6 @@ export class App extends React.PureComponent<IAppProps, IAppState> {
   }
 
   renderEnabled = (params: IWeb3Context) => {
-    const a = config[ContractEnum.DoubleOrNothing]
     return (
       <div className="app">
         <ContractLoader
@@ -40,11 +39,6 @@ export class App extends React.PureComponent<IAppProps, IAppState> {
               address: config[ContractEnum.DoubleOrNothing],
               signer: params.signer!,
               abi
-            },
-            {
-              address: config[ContractEnum.TTDai],
-              signer: params.signer!,
-              abi: Erc677Abi
             },
             {
               address: config[ContractEnum.TTUsdt],
@@ -78,7 +72,6 @@ export class App extends React.PureComponent<IAppProps, IAppState> {
           [ContractEnum.DoubleOrNothing]:
             params[config[ContractEnum.DoubleOrNothing]].contract,
           [ContractEnum.TTUsdt]: params[config[ContractEnum.TTUsdt]].contract,
-          [ContractEnum.TTDai]: params[config[ContractEnum.TTDai]].contract
         }}
       />
     )
