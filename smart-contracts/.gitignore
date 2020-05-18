@@ -2,3 +2,4 @@ node_modules
 conda-env
 .private-keys
 .mnemonic
+local.jsonc

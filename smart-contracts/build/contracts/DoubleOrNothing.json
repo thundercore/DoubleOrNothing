@@ -15278,8 +15278,7 @@
     }
   },
   "schemaVersion": "3.1.0",
-  "updatedAt": "2020-05-07T13:32:41.327Z",
-  "networkType": "ethereum",
+  "updatedAt": "2020-05-18T09:15:17.013Z",
   "devdoc": {
     "methods": {
       "getRefereeBonusRate(uint256)": {

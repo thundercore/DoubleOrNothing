@@ -12,6 +12,10 @@
     "truffle": "^5.1.22",
     "@truffle/hdwallet-provider": "^1.0.34"
   },
+  "devDependencies": {
+    "truffle-flattener": "^1.4.2",
+    "truffle-plugin-save-per-network-deployment-record": "https://github.com/thundercore/truffle-plugin-save-per-network-deployment-record.git"
+  },
   "engines": {
     "node": ">=8.0.0 <11.0.0"
   }
