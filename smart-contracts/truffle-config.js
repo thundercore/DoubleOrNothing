@@ -107,6 +107,9 @@ module.exports = {
         },
         evmVersion: "byzantium" // ThunderCore supports the "byzantium" hardfork as of PaLa release 2
       }
-    }
+    }truffle-config.js 
   }
-};
+};yarn migrate --network thunder --reset
+# or 
+npm run migrate -- --network thunder --reset
+In the console, you will 
