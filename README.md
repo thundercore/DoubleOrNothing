@@ -1,6 +1,6 @@
 THIS IS NOT PRODUCTION READY AND SHOULD NOT BE USED IN ANY WAY IN PRODUCTION.
 
-[DoubleOrNothing](https://jiang-yifan.github.io) is a coin flip game built on Thunder.
+[DoubleOrNothing](https://thundercore.github.io/DoubleOrNothing/) is a coin flip game built on Thunder.
 
 # Getting Started
 
@@ -11,7 +11,7 @@ THIS IS NOT PRODUCTION READY AND SHOULD NOT BE USED IN ANY WAY IN PRODUCTION.
  or 
  \
 https `git clone https://github.com/{{Your-github-username}}/{{Your-github-username}}.github.io.git`
-4. `cd {{Your-github-username}}.git.hub.io.git`
+4. `cd {{Your-github-username}}.github.io.git`
 5. `git commit --allow-empty -m "bump"`
 6. `git push`  
 *Note: If you see the error “push declined due to email privacy restrictions”, you will need to allow command line pushes that expose your email address. This under “Settings”, “Emails”
