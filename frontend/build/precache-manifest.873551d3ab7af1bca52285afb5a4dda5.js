@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1ba914ffe1d2dea545feb69cccbd52af",
+    "revision": "d6de5fa1cacaf2d2c91bfd6f86d3dcf6",
     "url": "/DoubleOrNothing/frontend/build/index.html"
   },
   {
-    "revision": "8d287ff31e10e5e35a2f",
-    "url": "/DoubleOrNothing/frontend/build/static/css/main.ca3f1b3f.chunk.css"
+    "revision": "557693a7090f570db973",
+    "url": "/DoubleOrNothing/frontend/build/static/css/main.0d4513e4.chunk.css"
   },
   {
-    "revision": "3622714b1e1823ab47e3",
-    "url": "/DoubleOrNothing/frontend/build/static/js/2.212fb3e9.chunk.js"
+    "revision": "61f1d6268fca7f171314",
+    "url": "/DoubleOrNothing/frontend/build/static/js/2.8a0cc92f.chunk.js"
   },
   {
-    "revision": "8d287ff31e10e5e35a2f",
-    "url": "/DoubleOrNothing/frontend/build/static/js/main.7639a31c.chunk.js"
+    "revision": "557693a7090f570db973",
+    "url": "/DoubleOrNothing/frontend/build/static/js/main.5f254dce.chunk.js"
   },
   {
-    "revision": "e9defdfed0b1e83ca5a5",
-    "url": "/DoubleOrNothing/frontend/build/static/js/runtime~main.2a8c9ac0.js"
+    "revision": "0121da577b8541544598",
+    "url": "/DoubleOrNothing/frontend/build/static/js/runtime-main.9332e801.js"
   },
   {
     "revision": "03b4fd11fa86248c71b3aba06a289206",
@@ -38,10 +38,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "44207f94d90658bedf76545bed55f30d",
     "url": "/DoubleOrNothing/frontend/build/static/media/ig_win_coin.44207f94.png"
-  },
-  {
-    "revision": "03a05cbd447b847c2293667548df2788",
-    "url": "/DoubleOrNothing/frontend/build/static/media/tt-dai.03a05cbd.png"
   },
   {
     "revision": "6ef855666d8f483e3f6fa8cdffb27051",
