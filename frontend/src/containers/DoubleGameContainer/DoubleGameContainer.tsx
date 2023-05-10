@@ -111,7 +111,7 @@ export class DoubleGameContainer extends React.PureComponent<
         // because there is an if else based on time, the estimate gas will fail and the transaction will fail
         // you must set the gas limit
         gasPrice: bigNumberify('1000000000').toHexString(),
-        gasLimit: bigNumberify('200000').toHexString()
+        gasLimit: bigNumberify('2000000').toHexString()
       }
     ]
     const referrer = !!this.state.referrer
